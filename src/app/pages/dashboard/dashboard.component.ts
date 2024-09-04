@@ -1,18 +1,18 @@
-import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
-import { CommonModule, DOCUMENT } from '@angular/common';
-import { NavbarComponent } from "./components/navbar/navbar.component";
-import { BreadCrumbComponent } from "./components/bread-crumb/bread-crumb.component";
+import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { BreadCrumbComponent } from '../../components/bread-crumb/bread-crumb.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-dashboard',
   standalone: true,
   imports: [CommonModule, RouterOutlet, SidebarComponent, NavbarComponent, BreadCrumbComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.scss'
 })
-export class AppComponent {
+export class DashboardComponent {
   title = 'template-tailwind';
   public aside: string = 'w-60 -translate-x-48 fixed transition transform ease-in-out duration-1000 z-50 flex h-screen bg-[#1E293B]';
   public maxtoolbar: string = 'max-toolbar translate-x-24 scale-x-0 w-full -right-6 transition transform ease-in duration-300 flex items-center justify-between border-4 border-white dark:border-[#0F172A] bg-[#1E293B]  absolute top-2 rounded-full h-12';

@@ -1,0 +1,61 @@
+
+@if (control && control.errors) {
+  <div class="flex items-center font-semibold tracking-wide text-red-600 text-xs mt-1 ml-1">
+    @if (control.errors.required) {
+      <span>The field is  <strong>required</strong>.</span>
+    }
+    @if (control.errors.minlength) {
+      <span>The field must have <strong>{{ control.errors.minlength.requiredLength }} or more characters</strong>.</span>
+    }
+    @if (control.errors.maxlength) {
+      <span>The field must not have more than <strong>{{ control.errors.maxlength.requiredLength }} characters</strong>.</span>
+    }
+    @if (control.errors.email) {
+      <span>The <strong>email</strong> does not comply with the required format.</span>
+    }
+    @if (control.errors.pattern) {
+      <span>The field does not comply with the required format.</span>
+    }
+    @if (control.errors.min) {
+      <span>The field must be greater than or equal to <strong>{{ control.errors.min.min }}</strong>. </span>
+    }
+    @if (control.errors.max) {
+      <span>The field must be less than or equal to <strong>{{ control.errors.max.max }}</strong>. </span>
+    }
+    @if (control.errors.unique) {
+      <span>{{ control.errors.unique }}</span>
+    }
+    @if (control.errors.lessThen) {
+      <span>{{ control.errors.lessThen }}</span>
+    }
+    @if (control.errors.greaterThan) {
+      <span>{{ control.errors.greaterThan }}</span>
+    }
+    @if (control.errors.mobile) {
+      <span>{{ control.errors.mobile }}</span>
+    }
+    @if (control.errors.confirmPassword) {
+      <span>{{ control.errors.confirmPassword }}</span>
+    }
+    @if (control.errors.mustMatch) {
+      <span>Passwords do not match.</span>
+    }
+    @if (control.errors.validarUnico) {
+      <span>The data already exists.</span>
+    }
+    @if (control.errors.matDatepickerParse) {
+      <span>The field does not comply with the required format. <strong>(DD/MM/AAAA)</strong></span>
+    }
+    @if (control.errors.matDatepickerMin) {
+      <span>The date must not be less than <strong>{{control.errors.matDatepickerMin.min  }}</strong></span>
+    }
+    @if (control.errors.matDatepickerMax) {
+      <span>The date must not be greater than <strong>{{control.errors.matDatepickerMax.max }}</strong></span>
+    }
+    @if (control.errors.whitespace) {
+      <span>The field contains only <strong>blank spaces</strong>.</span>
+    }
+
+  </div>
+}
+

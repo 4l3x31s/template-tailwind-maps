@@ -1,0 +1,5 @@
+<google-map  [options]="options" >
+  @for(position of markerPositions; track position){
+    <map-marker [position]="position" [options]="{draggable: false}" />
+  }
+</google-map>
