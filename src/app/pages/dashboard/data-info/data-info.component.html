@@ -1,0 +1,9 @@
+<google-map #map [options]="options"  (mapDrag)="centroCambiado($event)" >
+  <map-marker [position]="markerPosition" [options]="{draggable: false}" />
+  <!-- @for(position of markerPositions; track position){
+    <map-marker [position]="position" [options]="{draggable: true}" />
+  } -->
+</google-map>
+<div>
+  <button (click)="openBottomSheet()">Abrir Sheet</button>
+</div>

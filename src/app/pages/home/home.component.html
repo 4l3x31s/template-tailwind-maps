@@ -1,5 +1,26 @@
-<google-map  [options]="options" >
-  @for(position of markerPositions; track position){
-    <map-marker [position]="position" [options]="{draggable: false}" />
-  }
-</google-map>
+<div class="absolute w-full h-70vw/4 bg-transparent  hover:bg-white hover:drop-shadow-lg transition-opacity flex-shrink-0 top-0 z-20">
+  <div class="flex p-3">
+    <div class="grid grid-cols-5 p-2" >
+      <div class="rounded-lg">
+        <picture >
+          <img class="rounded-lg" src="logo2.png" width="150px" />
+        </picture>
+      </div>
+      <div class="items-center">
+        Hola Mundo
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="xl:relative">
+  <div class="grid items-end overflow-hidden relative md:min-h-screen motion-safe:lg:animate-fade-in motion-safe:lg:animation-delay-300 ">
+    <picture >
+      <img src="inicial.jpg" class="absolute h-full inset-0 object-cover w-full object-center filter drop-shadow" />
+    </picture>
+  </div>
+
+
+</div>
