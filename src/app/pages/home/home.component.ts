@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,5 +10,13 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent{
+  private router = inject(Router);
 
+
+  irSignIn(){
+    this.router.navigateByUrl('signin');
+  }
+  irSignUp() {
+    this.router.navigateByUrl('signup');
+  }
 }

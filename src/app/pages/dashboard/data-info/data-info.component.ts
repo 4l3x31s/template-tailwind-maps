@@ -29,7 +29,7 @@ export class DataInfoComponent {
   };
   markerPositions: google.maps.LatLngLiteral[] = [];
   options: google.maps.MapOptions = {
-    styles: environment.styles,
+    //styles: environment.styles,
     disableDefaultUI: true,
     fullscreenControl:false,
     maxZoom: 17,

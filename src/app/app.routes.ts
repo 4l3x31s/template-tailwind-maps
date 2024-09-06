@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { DataInfoComponent } from './pages/dashboard/data-info/data-info.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,9 @@ export const routes: Routes = [
   },
   {
     path: 'signup', component: SignupComponent
+  },
+  {
+    path: 'data-info', component: DataInfoComponent
   },
   {
     path:'**', redirectTo: ''
