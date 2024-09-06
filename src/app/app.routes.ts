@@ -9,12 +9,6 @@ import { DataInfoComponent } from './pages/dashboard/data-info/data-info.compone
 export const routes: Routes = [
   {path: '', component: HomeComponent},
   {
-    path: 'dashboard', component: DashboardComponent,
-    children: [
-      {path: '', component: MainContentComponent}
-    ]
-  },
-  {
     path: 'signin', component: SigninComponent
   },
   {
@@ -23,6 +17,13 @@ export const routes: Routes = [
   {
     path: 'data-info', component: DataInfoComponent
   },
+  {
+    path: 'dashboard', component: DashboardComponent,
+    children: [
+      {path: '', component: MainContentComponent}
+    ]
+  },
+
   {
     path:'**', redirectTo: ''
   }

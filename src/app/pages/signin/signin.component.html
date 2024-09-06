@@ -1,6 +1,6 @@
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <div
-  class="bg-blue-900 absolute top-0 left-0 bg-gradient-to-b from-gray-900 via-gray-900 to-blue-800 bottom-0 leading-5 h-full w-full overflow-hidden">
+  class="bg-creen-900 absolute top-0 left-0 bg-gradient-to-b from-green-950 via-green-800 to-green-600 bottom-0 leading-5 h-full w-full overflow-hidden">
 
 </div>
 <div class="relative   min-h-screen  sm:flex sm:flex-row  justify-center bg-transparent rounded-3xl shadow-xl">
@@ -16,13 +16,13 @@
       <div class="mb-7">
         <h3 class="font-semibold text-2xl text-gray-800">Sign In </h3>
         <p class="text-gray-400">Don'thave an account? <a href="#"
-            class="text-sm text-blue-700 hover:text-blue-700 font-semibold">Sign Up</a></p>
+            class="text-sm text-green-700 hover:text-green-700 font-semibold">Sign Up</a></p>
       </div>
 
       <div class="space-y-4" [formGroup]="loginFormGroup">
         <div class="">
           <input formControlName="vUser"
-            class=" w-full text-sm text-gray-600 px-3 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-blue-400"
+            class=" w-full text-sm text-gray-600 px-3 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-green-400"
             type="text" placeholder="Email">
             @if(!loginFormGroup.valid){
               <app-error [control]="f.vUser"></app-error>
@@ -33,7 +33,7 @@
 
         <div class="relative" x-data="{ show: true }">
           <input placeholder="Password" type="password" formControlName="vPass"
-            class="text-sm text-gray-600 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-blue-400">
+            class="text-sm text-gray-600 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-green-400">
             @if(!loginFormGroup.valid){
               <app-error [control]="f.vPass"></app-error>
             }
@@ -43,14 +43,14 @@
         <div class="flex items-center justify-between">
 
           <div class="text-sm ml-auto">
-            <a href="#" class="text-blue-700 hover:text-blue-600 font-semibold">
+            <a href="#" class="text-green-700 hover:text-green-600 font-semibold">
               Forgot your password?
             </a>
           </div>
         </div>
         <div>
           <button [disabled]="!loginFormGroup.valid" (click)="iniciaSesion()"
-            class="w-full flex justify-center enabled:bg-blue-800 enabled:hover:bg-blue-500 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:bg-gray-400 active:bg-blue-800  hover:bg-blue-500 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
+            class="w-full flex justify-center enabled:bg-green-800 enabled:hover:bg-green-500 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:bg-gray-400 active:bg-green-800  hover:bg-green-500 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
             Sign in
           </button>
 
