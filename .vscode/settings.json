@@ -1,0 +1,5 @@
+{
+    "CodeGPT.Autocomplete.provider": "Ollama - codestral:latest",
+    "CodeGPT.Autocomplete.enabled": false,
+    "CodeGPT.apiKey": "Ollama"
+}

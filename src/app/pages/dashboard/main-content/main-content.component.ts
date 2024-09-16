@@ -1,13 +1,15 @@
 import { Component, OnInit, inject, ViewChild } from '@angular/core';
-import { GoogleMapsModule, GoogleMap } from '@angular/google-maps';
+import { GoogleMapsModule, GoogleMap, MapGeocoder } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBottomSheetModule, MatBottomSheet } from '@angular/material/bottom-sheet';
 import { SheetComponent } from '../../../components/sheet/sheet.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-main-content',
   standalone: true,
-  imports: [GoogleMapsModule, MatButtonModule, MatBottomSheetModule],
+  imports: [CommonModule, FormsModule, GoogleMapsModule, MatButtonModule, MatBottomSheetModule],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss'
 })
@@ -20,11 +22,15 @@ export class MainContentComponent implements OnInit {
   private _bottomSheet = inject(MatBottomSheet);
   @ViewChild(GoogleMap) googleMap!: GoogleMap;
 
+  geocoder = inject(MapGeocoder);
+
+  direccion: string = '';
+
   @ViewChild('map')
   mapa!: google.maps.Map;
   //markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPosition: google.maps.LatLngLiteral = {
-    lat: 40, lng: -20
+    lat: 38.9147806, lng: -120.0039802
   };
   markerPositions: google.maps.LatLngLiteral[] = [];
   options: google.maps.MapOptions = {
@@ -33,7 +39,7 @@ export class MainContentComponent implements OnInit {
     fullscreenControl:false,
     maxZoom: 17,
     minZoom: 13,
-    center: {lat: 40, lng: -20},
+    center: {lat: 38.9147806, lng: -120.0039802},
     zoom: 4
   };
   height: number = 700;
@@ -48,15 +54,13 @@ export class MainContentComponent implements OnInit {
       //alert('Location accessed')
       this.options.center = {lat: data.coords.latitude, lng: data.coords.longitude}
 
-
-
       this.markerPosition = {
         lat: data.coords.latitude, lng: data.coords.longitude
       }
 
     },() => {
         alert('User not allowed')
-    },{timeout:5000})
+    },{timeout:1000})
   }
   openBottomSheet(): void {
     this._bottomSheet.open(SheetComponent);
@@ -86,6 +90,21 @@ export class MainContentComponent implements OnInit {
 
     //console.log(dato);
     //console.log(this.options);
+  }
+  buscarDireccion() {
+    console.log('busqueda, ', this.direccion)
+    this.geocoder.geocode({address: this.direccion}).subscribe(c=> {
+      let dato = c;
+      if(dato.status === 'OK'){
+        this.mapa.panTo({lat: dato.results[0].geometry.location.lat(),lng: dato.results[0].geometry.location.lng()});
+        this.options.center = {lat: dato.results[0].geometry.location.lat(),lng: dato.results[0].geometry.location.lng()}
+        this.markerPosition = {
+          lat: dato.results[0].geometry.location.lat(),
+          lng: dato.results[0].geometry.location.lng()
+        }
+      }
+
+    })
   }
 
 }

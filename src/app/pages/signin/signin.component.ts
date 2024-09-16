@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ErrorComponent } from "../../components/error/error.component";
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-signin',
@@ -15,6 +16,7 @@ export class SigninComponent implements OnInit {
   public fb = inject(FormBuilder);
   public loginFormGroup!: FormGroup;
   public router = inject(Router);
+  private auth = inject(Auth);
   constructor(){
   }
 
@@ -35,7 +37,14 @@ export class SigninComponent implements OnInit {
   }
 
   iniciaSesion() {
-    console.log('iniciaSesion')
-    this.router.navigateByUrl('dashboard')
+
+    signInWithEmailAndPassword(this.auth, this.loginFormGroup.get('vUser')?.value, this.loginFormGroup.get('vPass')?.value).then(c=> {
+      console.log(c.user);
+      this.router.navigateByUrl('dashboard')
+    })
+    .catch(error=> {
+      console.log(error);
+    })
+
   }
 }
